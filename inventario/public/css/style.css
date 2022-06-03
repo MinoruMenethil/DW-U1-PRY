@@ -1,0 +1,13 @@
+body.pagina_index{
+    background: #165387;
+}
+
+.pagina_index h2{
+    color: red;
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+
+.pagina_index label{
+    color: white;
+}
