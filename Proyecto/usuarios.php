@@ -57,7 +57,7 @@ $result = $conn -> query($consulta);
                     <th scope="col">Cedula</th>
                     <th scope="col">Correo</th>
                     <th scope="col">direccion</th>
-                    <th scope="col">Foto</th>
+                   
                     <th scope="col">CRUD</th>
                 </tr>
             </thead>
@@ -71,7 +71,7 @@ $result = $conn -> query($consulta);
                         echo '<td>' . $row['ced_cli'] . '</td>';
                         echo '<td>' . $row['email_cli'] . '</td>';
                         echo '<td>' . $row['dire_cli'] . '</td>';
-                        echo '<td class=img>' . $row['foto_cli'] . '</td>';
+                        /*echo '<td class=img>' . $row['foto_cli'] . '</td>';*/
                         echo'<td>';
                         echo '<a href="leer.php? id=' . $row['id_cli'] . '"><button type="button"  class="button is-primary"> Leer</button></a>';
                         echo '<a href="actualizar.php? id=' . $row['id_cli'] . '"><button type="button" class="button is-success"> Actualizar</button></a>';

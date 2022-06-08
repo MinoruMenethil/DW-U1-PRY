@@ -26,8 +26,8 @@
                               <div class="carousel-sporrt_text ">
                                  <h1 class="sport_text"><strong>Pc Gamer Santo Domingo<br><span style="color: #fff;">Cycle</span></strong></h1>
                                  <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content</p>
-                                 <button class="boynow_bt" onclick="location.href='login.php'">Ingresar</button>
-                                 <button class="contact_bt">Buscar Productos</button>
+                                 <button class="boynow_bt" onclick="location.href='login.php'">Ingresar Administrador</button>
+                                 <button class="contact_bt" onclick="location.href='login2.php'">Ingresar usuario</button>
                               </div>
                            </div>
                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
