@@ -7,16 +7,8 @@ $result = $conn -> query($consulta);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-    <link rel="stylesheet" href="./css/bulma.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"
-        integrity="sha256-FEqEelWI3WouFOo2VWP/uJfs1y8KJ++FLh2Lbqc8SJk=" crossorigin="anonymous"></script>
+    <?php include "./inc/head.php"; ?>
+    <?php  include "./inc/navbar.php"; ?>
     <style>
         table, th, td{
             border: 1px solid black;
@@ -30,6 +22,12 @@ $result = $conn -> query($consulta);
         .img{
             width: 100px;
             height: 100px;
+        }
+        .table thead, .table tfoot{
+            background-color: yellow;
+        }
+        .table thead th, .table tfoot th{
+            color: purple;
         }
     </style>
     <script tupe="text/javascript">
@@ -46,20 +44,21 @@ $result = $conn -> query($consulta);
 </head>
 <body>
     <div>
-        <h3>Usuarios</h3>
-        <button type="button" class="btn-group btn-group-toggle"><h4><a href="agregar.php">Agregar Usuario</a></h4></button>
+        <center><h3>Lista de Usuarios</h3></center>
+        <button type="button" class="button is-success is-outlined"><h4><a href="agregar.php">Agregar Usuario</a></h4></button>
         
-        <table class="table table-striped table-dark">
+        <table  class="table  is-striped  is-hoverable">
         <br>
             <thead>
                 <br>
                 <tr>
-                    <th scope="col">#</th>
+                   
                     <th scope="col">Nombre</th>
                     <th scope="col">Cedula</th>
                     <th scope="col">Correo</th>
                     <th scope="col">direccion</th>
                     <th scope="col">Foto</th>
+                    <th scope="col">CRUD</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,16 +66,16 @@ $result = $conn -> query($consulta);
                 if($result -> num_rows > 0){
                     while($row = $result -> fetch_assoc()){ 
                         echo '<tr>';
-                        echo '<td>' . $row['id_cli'] . '</td>';
+            
                         echo '<td>' . $row['nom_cli'] . " " . $row['ape_cli'] . '</td>';
                         echo '<td>' . $row['ced_cli'] . '</td>';
                         echo '<td>' . $row['email_cli'] . '</td>';
                         echo '<td>' . $row['dire_cli'] . '</td>';
-                        echo '<td class=img>' . $row['foto'] . '</td>';
+                        echo '<td class=img>' . $row['foto_cli'] . '</td>';
                         echo'<td>';
-                        echo '<a href="leer.php? id=' . $row['id_cli'] . '"><button type="button"  class="btn btn-outline-primary"> Leer</button></a>';
-                        echo '<a href="actualizar.php? id=' . $row['id_cli'] . '"><button type="button" class="btn btn-outline-success"> Actualizar</button></a>';
-                        echo '<a href="eliminar.php? id=' . $row['id_cli'] . '"><button type="button" class="btn btn-outline-warning"" onclick="return confirmardelete()" > Eliminar </button></a>';
+                        echo '<a href="leer.php? id=' . $row['id_cli'] . '"><button type="button"  class="button is-primary"> Leer</button></a>';
+                        echo '<a href="actualizar.php? id=' . $row['id_cli'] . '"><button type="button" class="button is-success"> Actualizar</button></a>';
+                        echo '<a href="eliminar.php? id=' . $row['id_cli'] . '"><button type="button" class="button is-danger is-light"" onclick="return confirmardelete()" > Eliminar </button></a>';
                      }
                         
                     
@@ -87,6 +86,12 @@ $result = $conn -> query($consulta);
                 ?>
             </tbody>
         </table>
+    <div id="nuevo_usuario" class="modal fade" tabindex="-1" role="dialog" aria-lablelld
     </div>
+    <script>
+        $(documento).ready(function(){
+            $('#example').TablaPr();
+        });
+    </script>
 </body>
 </html>

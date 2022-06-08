@@ -4,7 +4,7 @@
     
 if(isset($_GET['id']) && !empty(trim($_GET['id']))){
     $query='SELECT * FROM usuario WHERE id_cli = ?';
-    if($stmt = $conexion -> prepare($query)){
+    if($stmt = $conn -> prepare($query)){
         $stmt -> bind_param('i', $_GET['id']);
         if($stmt -> execute()){
             $result = $stmt -> get_result();
@@ -27,7 +27,7 @@ if(isset($_GET['id']) && !empty(trim($_GET['id']))){
         }
     }
     $stmt -> close();
-    $conexion -> close();
+    $conn -> close();
 }else {
     echo 'Error! intente mas tarde';
     exit();
@@ -42,6 +42,8 @@ if(isset($_GET['id']) && !empty(trim($_GET['id']))){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datos Usuario</title>
+    <?php include "./inc/head.php"; ?>
+    <?php  include "./inc/navbar.php"; ?>
     <style>
         label{
             font-weight: bold;

@@ -10,13 +10,13 @@ if(isset($_GET['id']) && !empty(trim($_GET["id"]))){
             $result=$stmt->get_result();
             if($result->num_rows==1){
                 $row=$result->fetch_array(MYSQLI_ASSOC);
-                $nombre = $_POST['nom_cli'];
-                $apellido = $_POST['ape_cli'];
-                $edad = $_POST['edad_cli'];
-                $telefono = $_POST['tlf_cli'];
-                $direccion = $_POST['dire_cli'];
-                $email = $_POST['email_cli'];
-                $cedula = $_POST['ced_cli'];
+                $nombre = $row['nom_cli'];
+                $apellido = $row['ape_cli'];
+                $edad = $row['edad_cli'];
+                $telefono = $row['tlf_cli'];
+                $direccion = $row['dire_cli'];
+                $email = $row['email_cli'];
+                $cedula = $row['ced_cli'];
             }else{
                 echo 'Error! No existen resultados.';
                 exit();
@@ -72,89 +72,70 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar usuario</title>
+    
+    <?php include "./inc/head.php"; ?>
+    <?php  include "./inc/navbar.php"; ?>
 </head>
 <body>
     <div>
         <h2>Actualizar el usuario</h2>
     </div>
     <h3>Edite la informacion para actualizar el usuario</h3>
-    <form action="<?php echo $_SERVER['REQUEST_URI'] ?>" method="post">
-
-            <div class="field">
+    <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
+        
+        <div class="field">
                 <label class="label">Name</label>
                 <div class="control">
-                    <input  name="nom_cli" type="text" placeholder="Nombre" value="<?php echo $nombre ?>" require>
+                    <input class="input" name="nom_cli" type="text" placeholder="Nombre" value="<?php echo $nombre ?>" require>
                 </div>
-            </div>
+        </div>
 
-            <div class="field">
-                    <label class="label">Apellido</label>
-                    <div class="control">
-                    <input  name="ape_cli" type="text" placeholder="Apellido" value="<?php echo $apellido ?>" require>
-                    </div>
-            </div>
-    
-            <div class="field">
-                    <label class="label">Edad</label>
-                    <div class="control">
-                    <input  name="edad_cli" type="text" placeholder="Edad" value="<?php echo $edad ?>" require>
-                    </div>
-            </div>
-
-            <div class="field is-horizontal">
-                <label class="label">Telefono</label>
-                    <div class="field-label"></div>
-                    <div class="field-body">
-                        <div class="field is-expanded">
-                        <div class="field has-addons">
-                            <p class="control">
-                            <a class="button is-static">
-                                +593
-                            </a>
-                            </p>
-                            <p class="control is-expanded">
-                            <input  type="tel"  name="tlf_cli" placeholder="Escriba su numero de tlf" value="<?php echo $telefono ?>">
-                            </p>
-                        </div>
-                        <p class="help">No agrege el numero cero al inicio</p>
-                        </div>
-                    </div>
-            </div>
-
-            <div class="field">
-                    <label class="label">Direccion</label>
-                    <div class="control">
-                    <input  name="dire_cli" type="text" placeholder="Direccion"  value="<?php echo $direccion ?>" require>
-                    </div>
-            </div>
-
-            <div class="field">
-                <label class="label">Email</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-danger" name="email_cli" type="email" placeholder="Email input" value="@gmail" value="<?php echo $email  ?>" require>
-                    <span class="icon is-small is-left">
-                    <i class="fas fa-envelope"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    </span>
+        <div class="field">
+                <label class="label">Apellido</label>
+                <div class="control">
+                <input class="input" name="ape_cli" type="text" placeholder="Apellido" value="<?php echo $apellido ?>" require>
                 </div>
-                <p class="help is-danger">This email is invalid</p>
+        </div>
+
+        <div class="field">
+                <label class="label">Edad</label>
+                <div class="control">
+                <input class="input" name="edad_cli" type="text" placeholder="Edad" value="<?php echo $edad ?>" require>
                 </div>
-                <div class="field is-grouped">
-            </div>    
+        </div>
+       
+        <div class="field">
+                    <label class="label">Telefono</label>
+                    <div class="control">
+                    <input  class="input" name="dire_cli" type="text" placeholder="Direccion"  value="<?php echo $telefono ?>" require>
+                    </div>
+        </div> 
+
+        <div class="field">
+                <label class="label">Direccion</label>
+                <div class="control">
+                <input class="input" name="dire_cli" type="text" placeholder="Direccion" value="<?php echo $direccion ?>" require>
+                </div>
+        </div>
+
+        <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                    <input  class="input" name="dire_cli" type="text" placeholder="Direccion"  value="<?php echo $email ?>" require>
+                    </div>
+        </div> 
         
-            <div class="field">
-                    <label class="label">Cedula</label>
-                    <div class="control">
-                        <input type="text" name="ced_cli" type="text" placeholder="Cedula" value="<?php echo $cedula?>" require require>
-                    </div>
-            </div>
+        <div class="field">
+                <label class="label">Cedula</label>
+                <div class="control">
+                    <input class="input" name="ced_cli" type="text" placeholder="Cedula" require>
+                </div>
+        </div>
 
         <div class="control">
             <div class="field is-grouped is-grouped-right">
                 <p class="control">
-                    <input class="button is-primary" type="submit" value="Agregar">
+                    <input class="button is-primary" type="submit" value="Actualizar">
                 </p>
                 <p class="control">
                     <a class="button is-light" href="index.php">Cancelar
@@ -162,6 +143,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 </p>
             </div>
         </div>
-        </form>
+    </form>
 </body>
 </html>

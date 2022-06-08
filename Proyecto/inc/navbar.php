@@ -14,14 +14,23 @@
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
      
+      <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">Navegar</a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="agregar.php">Home</a>
+              <a class="navbar-item"  href="usuarios.php">Login</a>
+          
+            </div>
+      </div>
 
       <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">Usuarios</a>
 
           <div class="navbar-dropdown">
-            <a class="navbar-item">Nuevo</a>
-            <a class="navbar-item">Lista</a>
-            <a class="navbar-item">Buscar</a>
+            <a class="navbar-item" href="agregar.php">Nuevo</a>
+            <a class="navbar-item"  href="usuarios.php">Lista</a>
+         
           </div>
       </div>
       
@@ -31,7 +40,7 @@
           <div class="navbar-dropdown">
             <a class="navbar-item">Nuevo</a>
             <a class="navbar-item">Lista</a>
-            <a class="navbar-item">Buscar</a>
+         
           </div>
       </div>
 
@@ -42,7 +51,7 @@
             <a class="navbar-item">Nuevo</a>
             <a class="navbar-item">Lista</a>
             <a class="navbar-item">Categorias</a>
-            <a class="navbar-item">Buscar</a>
+  
           </div>
       </div>
     </div>
@@ -50,10 +59,10 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary is-rounded">
+          <a class="button is-primary is-rounded"  href="agregar.php">
            Mi cuenta
           </a>
-          <a class="button is-light is-link is-rounded">
+          <a class="button is-light is-link is-rounded"  href="login.php">
             Salir
           </a>
         </div>
